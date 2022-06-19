@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E4A4677-057D-4AF0-8C41-C30DB7530FC9}</ProjectGuid>
+    <ProjectGuid>{F0C620C3-675F-4F65-BA46-40856FA8E8DF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SimulationBuilding</RootNamespace>
     <AssemblyName>SimulationBuilding</AssemblyName>
@@ -46,14 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BuildSim.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BuildSim.Designer.cs">
+      <DependentUpon>BuildSim.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BuildSim.resx">
+      <DependentUpon>BuildSim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

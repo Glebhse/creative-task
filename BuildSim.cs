@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SimulationBuilding
 {
-    public partial class Form1 : Form
+    public partial class BuildSim : Form
     {
-        public Form1()
+        public BuildSim()
         {
             InitializeComponent();
+        }
+
+        private void BuildSim_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
