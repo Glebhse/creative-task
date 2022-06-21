@@ -1,0 +1,11 @@
+D:\Мои папки\Desktop\creative_task_di\creative-task\bin\Debug\SimulationBuilding.exe.config
+D:\Мои папки\Desktop\creative_task_di\creative-task\bin\Debug\SimulationBuilding.exe
+D:\Мои папки\Desktop\creative_task_di\creative-task\bin\Debug\SimulationBuilding.pdb
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.csproj.AssemblyReference.cache
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.csproj.SuggestedBindingRedirects.cache
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.BuildSim.resources
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.Properties.Resources.resources
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.csproj.GenerateResource.cache
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.csproj.CoreCompileInputs.cache
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.exe
+D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.pdb
