@@ -33,13 +33,11 @@ namespace SimulationBuilding
             // 
             // BuildSim
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1284, 701);
             this.Name = "BuildSim";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.BuildSim_Load);
-            this.ResumeLayout(false);
+            this.Text = "Имитационное моделирование работы строительных машин";
 
         }
 

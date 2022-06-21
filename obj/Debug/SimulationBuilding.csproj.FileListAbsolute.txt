@@ -1,0 +1,10 @@
+C:\Users\ASUS\Desktop\Программирование гитхаб\bin\Debug\SimulationBuilding.exe.config
+C:\Users\ASUS\Desktop\Программирование гитхаб\bin\Debug\SimulationBuilding.exe
+C:\Users\ASUS\Desktop\Программирование гитхаб\bin\Debug\SimulationBuilding.pdb
+C:\Users\ASUS\Desktop\Программирование гитхаб\obj\Debug\SimulationBuilding.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\Программирование гитхаб\obj\Debug\SimulationBuilding.BuildSim.resources
+C:\Users\ASUS\Desktop\Программирование гитхаб\obj\Debug\SimulationBuilding.Properties.Resources.resources
+C:\Users\ASUS\Desktop\Программирование гитхаб\obj\Debug\SimulationBuilding.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\Программирование гитхаб\obj\Debug\SimulationBuilding.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Программирование гитхаб\obj\Debug\SimulationBuilding.exe
+C:\Users\ASUS\Desktop\Программирование гитхаб\obj\Debug\SimulationBuilding.pdb
