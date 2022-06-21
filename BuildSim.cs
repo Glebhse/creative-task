@@ -22,5 +22,14 @@ namespace SimulationBuilding
            
         }
 
+        private void BuildSim_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
