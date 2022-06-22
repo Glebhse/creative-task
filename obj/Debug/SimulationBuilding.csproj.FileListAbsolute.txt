@@ -9,3 +9,14 @@ D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\Simulation
 D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.csproj.CoreCompileInputs.cache
 D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.exe
 D:\Мои папки\Desktop\creative_task_di\creative-task\obj\Debug\SimulationBuilding.pdb
+C:\Users\holop\Desktop\github\creative-task\bin\Debug\SimulationBuilding.exe.config
+C:\Users\holop\Desktop\github\creative-task\bin\Debug\SimulationBuilding.exe
+C:\Users\holop\Desktop\github\creative-task\bin\Debug\SimulationBuilding.pdb
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.csproj.AssemblyReference.cache
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.csproj.SuggestedBindingRedirects.cache
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.BuildSim.resources
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.Properties.Resources.resources
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.csproj.GenerateResource.cache
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.csproj.CoreCompileInputs.cache
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.exe
+C:\Users\holop\Desktop\github\creative-task\obj\Debug\SimulationBuilding.pdb
