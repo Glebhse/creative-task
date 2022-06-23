@@ -15,6 +15,7 @@ namespace SimulationBuilding
         public BuildSim()
         {
             InitializeComponent();
+            
         }
 
         private void BuildSim_Load(object sender, EventArgs e)
