@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimulationBuliding
+namespace SimulationBuilding
 {
     /// <summary>
     /// Состояния машин
@@ -59,4 +59,5 @@ namespace SimulationBuliding
         public int modelDurationWaitingPerAllPeriod = 0;
         public int modelDurationRepairPerAllPeriod = 0;
     }
+   
 }
