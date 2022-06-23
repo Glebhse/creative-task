@@ -43,7 +43,101 @@ namespace SimulationBuilding
         public BuildSim()
         {
             InitializeComponent();
+            excavator.type = MachineType.Excavator;
+            bulldozer.type = MachineType.Bulldozer;
+
+            btnStartModeling.Enabled = true;
+            btnStopModeling.Enabled = false;
+            btnNextDay.Enabled = false;
+            btnLastDay.Enabled = false;
+        }
+
+        private void btnStartModeling_Click(object sender, EventArgs e)
+        {
+            // Элементы настроки параметров моделирования сделать недоступными
+            groupBoxMachinesParams.Enabled = false;
+            groupBoxWorkersParams.Enabled = false;
+            groupBoxModelingParams.Enabled = false;
+
+            // Заполнение переменных моделирования на основе значений, заданных пользователем на форме:
+
+            // Если выбрано, что работают оба мастера, то устанавливаем переменную bothMasterWorking как true
+            bothMasterWorking = radioButtonBothWorkers.Checked;
+
+            // Математические ожидания работы экскаватора и бульдозера (в минутах)
+            excavator.expectationDurationWork = (int)(numericUpDownExpWorkExcavator.Value * 60);
+            bulldozer.expectationDurationWork = (int)(numericUpDownExpWorkBulldozer.Value * 60);
+
+            // Математические ожидания ремонта экскаватора и бульдозера бригадой мастеров (в минутах)
+            expValueRepairExcavatorWorkers = (int)(numericUpDownExpRepairExcavatorWorkers.Value * 60);
+            expValueRepairBulldozerWorkers = (int)(numericUpDownExpRepairBulldozerWorkers.Value * 60);
+
+            // Математические ожидания ремонта экскаватора и бульдозера по одному мастеру (в минутах)
+            worker3.expectationDurationRepairExcavator = (int)(numericUpDownExpRepairExcavatorWorker3.Value * 60);
+            worker6.expectationDurationRepairExcavator = (int)(numericUpDownExpRepairExcavatorWorker6.Value * 60);
+            worker6.expectationDurationRepairBulldozer = (int)(numericUpDownExpRepairBulldozerWorker6.Value * 60);
+
+            // Финансовые параметры (в мин)
+            costOverheadsWorkersPerMinute = numericUpDownOverheadsWorkers.Value / 60;
+            worker3.salaryPerMinute = numericUpDownSalaryWorker3.Value / 60;
+            worker6.salaryPerMinute = numericUpDownSalaryWorker6.Value / 60;
+
+            // Доходы от работы машин (в мин)
+            excavator.profitPerMinute = numericUpDownExcProfit.Value / 60;
+            bulldozer.profitPerMinute = numericUpDownBullProfit.Value / 60;
+
+            // Убыток от простоя машин (в мин)
+            excavator.lossPerMinute = numericUpDownExcLoss.Value / 60;
+            bulldozer.lossPerMinute = numericUpDownBullLoss.Value / 60;
+
+            // Время работы машин в сутки (по умолчанию 16 часов)
+            durationWorkChange = (int)numericUpDownWorkingHours.Value;
+
+            // Длительность моделирования
+            durationModelingDay = (int)numericUpDownModelPeriod.Value;
+
+            // Текущий день моделирования
+            modelDay = 0;
+
+            // Прибыль за весь период моделирования
+            profitPerAllPeriod = 0;
+
+            // Старт моделирования первого дня
+                                //Здесь должна быть функция для моделирования одного дня!!
             
+            
+            //После начала моделирования меняем доступные кнопки
+            btnStartModeling.Enabled = false;
+            btnStopModeling.Enabled = true;
+            btnNextDay.Enabled = true;
+            btnLastDay.Enabled = true;
+        }
+
+        private void btnStopModeling_Click(object sender, EventArgs e)
+        {
+            groupBoxMachinesParams.Enabled = true;
+            groupBoxWorkersParams.Enabled = true;
+            groupBoxModelingParams.Enabled = true;
+
+            //Функция для обнуления всей выведенной информации на экран после нажатия кнопки!!
+
+            btnStartModeling.Enabled = true;
+            btnStopModeling.Enabled = false;
+            btnNextDay.Enabled = false;
+            btnLastDay.Enabled = false;
+        }
+
+        private void btnNextDay_Click(object sender, EventArgs e)
+        {
+            //Здесь должна быть функция для моделирования одного дня!!
+        }
+
+        private void btnFinishModeling_Click(object sender, EventArgs e)
+        {
+            for (int i = modelDay; i < durationModelingDay; i++)
+            {
+                //Здесь должна быть функция для моделирования одного дня!!
+            }
         }
 
         private void BuildSim_Load(object sender, EventArgs e)
