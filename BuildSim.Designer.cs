@@ -117,9 +117,11 @@ namespace SimulationBuilding
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.btnNextDay);
             this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Location = new System.Drawing.Point(546, 30);
+            this.groupBox4.Location = new System.Drawing.Point(728, 37);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(917, 739);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(1223, 910);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Результаты моделирования";
@@ -127,64 +129,71 @@ namespace SimulationBuilding
             // textBoxModelDay
             // 
             this.textBoxModelDay.Enabled = false;
-            this.textBoxModelDay.Location = new System.Drawing.Point(125, 65);
+            this.textBoxModelDay.Location = new System.Drawing.Point(167, 80);
+            this.textBoxModelDay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxModelDay.Name = "textBoxModelDay";
-            this.textBoxModelDay.Size = new System.Drawing.Size(67, 20);
+            this.textBoxModelDay.Size = new System.Drawing.Size(88, 22);
             this.textBoxModelDay.TabIndex = 2;
             // 
             // richTextBoxResults
             // 
-            this.richTextBoxResults.Location = new System.Drawing.Point(466, 251);
+            this.richTextBoxResults.Location = new System.Drawing.Point(621, 309);
+            this.richTextBoxResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBoxResults.Name = "richTextBoxResults";
             this.richTextBoxResults.ReadOnly = true;
             this.richTextBoxResults.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBoxResults.Size = new System.Drawing.Size(445, 477);
+            this.richTextBoxResults.Size = new System.Drawing.Size(592, 586);
             this.richTextBoxResults.TabIndex = 1;
             this.richTextBoxResults.Text = "   ";
             // 
             // richTextBoxDayStatistic
             // 
-            this.richTextBoxDayStatistic.Location = new System.Drawing.Point(6, 251);
+            this.richTextBoxDayStatistic.Location = new System.Drawing.Point(8, 309);
+            this.richTextBoxDayStatistic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBoxDayStatistic.Name = "richTextBoxDayStatistic";
             this.richTextBoxDayStatistic.ReadOnly = true;
             this.richTextBoxDayStatistic.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBoxDayStatistic.Size = new System.Drawing.Size(454, 477);
+            this.richTextBoxDayStatistic.Size = new System.Drawing.Size(604, 586);
             this.richTextBoxDayStatistic.TabIndex = 1;
             this.richTextBoxDayStatistic.Text = "   ";
             // 
             // richTextBoxModelingLog
             // 
-            this.richTextBoxModelingLog.Location = new System.Drawing.Point(6, 118);
+            this.richTextBoxModelingLog.Location = new System.Drawing.Point(8, 145);
+            this.richTextBoxModelingLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBoxModelingLog.Name = "richTextBoxModelingLog";
             this.richTextBoxModelingLog.ReadOnly = true;
             this.richTextBoxModelingLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBoxModelingLog.Size = new System.Drawing.Size(661, 115);
+            this.richTextBoxModelingLog.Size = new System.Drawing.Size(880, 141);
             this.richTextBoxModelingLog.TabIndex = 1;
             this.richTextBoxModelingLog.Text = "";
             // 
             // btnLastDay
             // 
-            this.btnLastDay.Location = new System.Drawing.Point(554, 27);
+            this.btnLastDay.Location = new System.Drawing.Point(739, 33);
+            this.btnLastDay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLastDay.Name = "btnLastDay";
-            this.btnLastDay.Size = new System.Drawing.Size(113, 23);
+            this.btnLastDay.Size = new System.Drawing.Size(151, 28);
             this.btnLastDay.TabIndex = 0;
             this.btnLastDay.Text = "Конец периода";
             this.btnLastDay.UseVisualStyleBackColor = true;
             // 
             // btnStopModeling
             // 
-            this.btnStopModeling.Location = new System.Drawing.Point(146, 27);
+            this.btnStopModeling.Location = new System.Drawing.Point(195, 33);
+            this.btnStopModeling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStopModeling.Name = "btnStopModeling";
-            this.btnStopModeling.Size = new System.Drawing.Size(161, 23);
+            this.btnStopModeling.Size = new System.Drawing.Size(215, 28);
             this.btnStopModeling.TabIndex = 0;
             this.btnStopModeling.Text = "Остановить моделирование";
             this.btnStopModeling.UseVisualStyleBackColor = true;
             // 
             // btnStartModeling
             // 
-            this.btnStartModeling.Location = new System.Drawing.Point(9, 27);
+            this.btnStartModeling.Location = new System.Drawing.Point(12, 33);
+            this.btnStartModeling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStartModeling.Name = "btnStartModeling";
-            this.btnStartModeling.Size = new System.Drawing.Size(131, 23);
+            this.btnStartModeling.Size = new System.Drawing.Size(175, 28);
             this.btnStartModeling.TabIndex = 0;
             this.btnStartModeling.Text = "Старт моделирования";
             this.btnStartModeling.UseVisualStyleBackColor = true;
@@ -192,45 +201,51 @@ namespace SimulationBuilding
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(6, 98);
+            this.label17.Location = new System.Drawing.Point(8, 121);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(275, 17);
+            this.label17.Size = new System.Drawing.Size(367, 21);
             this.label17.TabIndex = 0;
             this.label17.Text = "Расписание на день моделирования:";
             this.label17.UseCompatibleTextRendering = true;
             // 
             // label20
             // 
-            this.label20.Location = new System.Drawing.Point(466, 236);
+            this.label20.Location = new System.Drawing.Point(621, 290);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(343, 24);
+            this.label20.Size = new System.Drawing.Size(457, 30);
             this.label20.TabIndex = 0;
             this.label20.Text = "Общие результаты за весь период моделирования:";
             this.label20.UseCompatibleTextRendering = true;
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(6, 236);
+            this.label16.Location = new System.Drawing.Point(8, 290);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(275, 24);
+            this.label16.Size = new System.Drawing.Size(367, 30);
             this.label16.TabIndex = 0;
             this.label16.Text = "Результаты за день моделирования:";
             this.label16.UseCompatibleTextRendering = true;
             // 
             // btnNextDay
             // 
-            this.btnNextDay.Location = new System.Drawing.Point(435, 27);
+            this.btnNextDay.Location = new System.Drawing.Point(580, 33);
+            this.btnNextDay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNextDay.Name = "btnNextDay";
-            this.btnNextDay.Size = new System.Drawing.Size(113, 23);
+            this.btnNextDay.Size = new System.Drawing.Size(151, 28);
             this.btnNextDay.TabIndex = 0;
             this.btnNextDay.Text = "Следующий день";
             this.btnNextDay.UseVisualStyleBackColor = true;
             this.btnNextDay.Click += new System.EventHandler(this.btnNextDay_Click);
+            // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(6, 62);
+            this.label15.Location = new System.Drawing.Point(8, 76);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(134, 23);
+            this.label15.Size = new System.Drawing.Size(179, 28);
             this.label15.TabIndex = 0;
             this.label15.Text = "День моделирования: ";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -248,23 +263,26 @@ namespace SimulationBuilding
             this.groupBoxMachinesParams.Controls.Add(this.label4);
             this.groupBoxMachinesParams.Controls.Add(this.label3);
             this.groupBoxMachinesParams.Controls.Add(this.label1);
-            this.groupBoxMachinesParams.Location = new System.Drawing.Point(12, 29);
+            this.groupBoxMachinesParams.Location = new System.Drawing.Point(16, 36);
+            this.groupBoxMachinesParams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxMachinesParams.Name = "groupBoxMachinesParams";
-            this.groupBoxMachinesParams.Size = new System.Drawing.Size(528, 149);
+            this.groupBoxMachinesParams.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxMachinesParams.Size = new System.Drawing.Size(704, 183);
             this.groupBoxMachinesParams.TabIndex = 4;
             this.groupBoxMachinesParams.TabStop = false;
             this.groupBoxMachinesParams.Text = "Параметры работы оборудования";
             // 
             // numericUpDownBullProfit
             // 
-            this.numericUpDownBullProfit.Location = new System.Drawing.Point(407, 110);
+            this.numericUpDownBullProfit.Location = new System.Drawing.Point(543, 135);
+            this.numericUpDownBullProfit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownBullProfit.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownBullProfit.Name = "numericUpDownBullProfit";
-            this.numericUpDownBullProfit.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownBullProfit.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownBullProfit.TabIndex = 1;
             this.numericUpDownBullProfit.Value = new decimal(new int[] {
             300,
@@ -274,14 +292,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownExcProfit
             // 
-            this.numericUpDownExcProfit.Location = new System.Drawing.Point(271, 110);
+            this.numericUpDownExcProfit.Location = new System.Drawing.Point(361, 135);
+            this.numericUpDownExcProfit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExcProfit.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownExcProfit.Name = "numericUpDownExcProfit";
-            this.numericUpDownExcProfit.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExcProfit.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExcProfit.TabIndex = 1;
             this.numericUpDownExcProfit.Value = new decimal(new int[] {
             500,
@@ -291,14 +310,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownBullLoss
             // 
-            this.numericUpDownBullLoss.Location = new System.Drawing.Point(407, 75);
+            this.numericUpDownBullLoss.Location = new System.Drawing.Point(543, 92);
+            this.numericUpDownBullLoss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownBullLoss.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownBullLoss.Name = "numericUpDownBullLoss";
-            this.numericUpDownBullLoss.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownBullLoss.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownBullLoss.TabIndex = 1;
             this.numericUpDownBullLoss.Value = new decimal(new int[] {
             300,
@@ -308,14 +328,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownExcLoss
             // 
-            this.numericUpDownExcLoss.Location = new System.Drawing.Point(271, 75);
+            this.numericUpDownExcLoss.Location = new System.Drawing.Point(361, 92);
+            this.numericUpDownExcLoss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExcLoss.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownExcLoss.Name = "numericUpDownExcLoss";
-            this.numericUpDownExcLoss.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExcLoss.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExcLoss.TabIndex = 1;
             this.numericUpDownExcLoss.Value = new decimal(new int[] {
             500,
@@ -325,9 +346,10 @@ namespace SimulationBuilding
             // 
             // numericUpDownExpWorkBulldozer
             // 
-            this.numericUpDownExpWorkBulldozer.Location = new System.Drawing.Point(407, 44);
+            this.numericUpDownExpWorkBulldozer.Location = new System.Drawing.Point(543, 54);
+            this.numericUpDownExpWorkBulldozer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExpWorkBulldozer.Name = "numericUpDownExpWorkBulldozer";
-            this.numericUpDownExpWorkBulldozer.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExpWorkBulldozer.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExpWorkBulldozer.TabIndex = 1;
             this.numericUpDownExpWorkBulldozer.Value = new decimal(new int[] {
             6,
@@ -337,9 +359,10 @@ namespace SimulationBuilding
             // 
             // numericUpDownExpWorkExcavator
             // 
-            this.numericUpDownExpWorkExcavator.Location = new System.Drawing.Point(271, 44);
+            this.numericUpDownExpWorkExcavator.Location = new System.Drawing.Point(361, 54);
+            this.numericUpDownExpWorkExcavator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExpWorkExcavator.Name = "numericUpDownExpWorkExcavator";
-            this.numericUpDownExpWorkExcavator.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExpWorkExcavator.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExpWorkExcavator.TabIndex = 1;
             this.numericUpDownExpWorkExcavator.Value = new decimal(new int[] {
             4,
@@ -349,45 +372,50 @@ namespace SimulationBuilding
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(404, 16);
+            this.label2.Location = new System.Drawing.Point(539, 20);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.Size = new System.Drawing.Size(133, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Бульдозер";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(6, 112);
+            this.label5.Location = new System.Drawing.Point(8, 138);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(275, 24);
+            this.label5.Size = new System.Drawing.Size(367, 30);
             this.label5.TabIndex = 0;
             this.label5.Text = "Размер прибыли в час, руб.";
             this.label5.UseCompatibleTextRendering = true;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Location = new System.Drawing.Point(8, 95);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(275, 24);
+            this.label4.Size = new System.Drawing.Size(367, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Размер убытков в час, руб.";
             this.label4.UseCompatibleTextRendering = true;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 44);
+            this.label3.Location = new System.Drawing.Point(8, 54);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(275, 24);
+            this.label3.Size = new System.Drawing.Size(367, 30);
             this.label3.TabIndex = 0;
             this.label3.Text = "Математическое ожидание времени работы, час";
             this.label3.UseCompatibleTextRendering = true;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(268, 16);
+            this.label1.Location = new System.Drawing.Point(357, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(133, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Экскаватор";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -410,9 +438,11 @@ namespace SimulationBuilding
             this.groupBoxWorkersParams.Controls.Add(this.label10);
             this.groupBoxWorkersParams.Controls.Add(this.label11);
             this.groupBoxWorkersParams.Controls.Add(this.label12);
-            this.groupBoxWorkersParams.Location = new System.Drawing.Point(12, 184);
+            this.groupBoxWorkersParams.Location = new System.Drawing.Point(16, 226);
+            this.groupBoxWorkersParams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxWorkersParams.Name = "groupBoxWorkersParams";
-            this.groupBoxWorkersParams.Size = new System.Drawing.Size(528, 276);
+            this.groupBoxWorkersParams.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxWorkersParams.Size = new System.Drawing.Size(704, 340);
             this.groupBoxWorkersParams.TabIndex = 5;
             this.groupBoxWorkersParams.TabStop = false;
             this.groupBoxWorkersParams.Text = "Параметры рабочих";
@@ -420,14 +450,15 @@ namespace SimulationBuilding
             // numericUpDownExpRepairBulldozerWorkers
             // 
             this.numericUpDownExpRepairBulldozerWorkers.DecimalPlaces = 2;
-            this.numericUpDownExpRepairBulldozerWorkers.Location = new System.Drawing.Point(407, 243);
+            this.numericUpDownExpRepairBulldozerWorkers.Location = new System.Drawing.Point(543, 299);
+            this.numericUpDownExpRepairBulldozerWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExpRepairBulldozerWorkers.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownExpRepairBulldozerWorkers.Name = "numericUpDownExpRepairBulldozerWorkers";
-            this.numericUpDownExpRepairBulldozerWorkers.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExpRepairBulldozerWorkers.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExpRepairBulldozerWorkers.TabIndex = 1;
             this.numericUpDownExpRepairBulldozerWorkers.Value = new decimal(new int[] {
             15,
@@ -437,14 +468,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownExpRepairBulldozerWorker6
             // 
-            this.numericUpDownExpRepairBulldozerWorker6.Location = new System.Drawing.Point(407, 197);
+            this.numericUpDownExpRepairBulldozerWorker6.Location = new System.Drawing.Point(543, 242);
+            this.numericUpDownExpRepairBulldozerWorker6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExpRepairBulldozerWorker6.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownExpRepairBulldozerWorker6.Name = "numericUpDownExpRepairBulldozerWorker6";
-            this.numericUpDownExpRepairBulldozerWorker6.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExpRepairBulldozerWorker6.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExpRepairBulldozerWorker6.TabIndex = 1;
             this.numericUpDownExpRepairBulldozerWorker6.Value = new decimal(new int[] {
             2,
@@ -455,14 +487,15 @@ namespace SimulationBuilding
             // numericUpDownExpRepairExcavatorWorkers
             // 
             this.numericUpDownExpRepairExcavatorWorkers.DecimalPlaces = 2;
-            this.numericUpDownExpRepairExcavatorWorkers.Location = new System.Drawing.Point(271, 243);
+            this.numericUpDownExpRepairExcavatorWorkers.Location = new System.Drawing.Point(361, 299);
+            this.numericUpDownExpRepairExcavatorWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExpRepairExcavatorWorkers.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownExpRepairExcavatorWorkers.Name = "numericUpDownExpRepairExcavatorWorkers";
-            this.numericUpDownExpRepairExcavatorWorkers.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExpRepairExcavatorWorkers.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExpRepairExcavatorWorkers.TabIndex = 1;
             this.numericUpDownExpRepairExcavatorWorkers.Value = new decimal(new int[] {
             25,
@@ -472,14 +505,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownExpRepairExcavatorWorker6
             // 
-            this.numericUpDownExpRepairExcavatorWorker6.Location = new System.Drawing.Point(271, 197);
+            this.numericUpDownExpRepairExcavatorWorker6.Location = new System.Drawing.Point(361, 242);
+            this.numericUpDownExpRepairExcavatorWorker6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExpRepairExcavatorWorker6.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownExpRepairExcavatorWorker6.Name = "numericUpDownExpRepairExcavatorWorker6";
-            this.numericUpDownExpRepairExcavatorWorker6.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExpRepairExcavatorWorker6.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExpRepairExcavatorWorker6.TabIndex = 1;
             this.numericUpDownExpRepairExcavatorWorker6.Value = new decimal(new int[] {
             1,
@@ -489,14 +523,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownExpRepairExcavatorWorker3
             // 
-            this.numericUpDownExpRepairExcavatorWorker3.Location = new System.Drawing.Point(271, 160);
+            this.numericUpDownExpRepairExcavatorWorker3.Location = new System.Drawing.Point(361, 197);
+            this.numericUpDownExpRepairExcavatorWorker3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownExpRepairExcavatorWorker3.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownExpRepairExcavatorWorker3.Name = "numericUpDownExpRepairExcavatorWorker3";
-            this.numericUpDownExpRepairExcavatorWorker3.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownExpRepairExcavatorWorker3.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownExpRepairExcavatorWorker3.TabIndex = 1;
             this.numericUpDownExpRepairExcavatorWorker3.Value = new decimal(new int[] {
             2,
@@ -506,14 +541,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownOverheadsWorkers
             // 
-            this.numericUpDownOverheadsWorkers.Location = new System.Drawing.Point(271, 95);
+            this.numericUpDownOverheadsWorkers.Location = new System.Drawing.Point(361, 117);
+            this.numericUpDownOverheadsWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownOverheadsWorkers.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownOverheadsWorkers.Name = "numericUpDownOverheadsWorkers";
-            this.numericUpDownOverheadsWorkers.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownOverheadsWorkers.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownOverheadsWorkers.TabIndex = 1;
             this.numericUpDownOverheadsWorkers.Value = new decimal(new int[] {
             50,
@@ -523,14 +559,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownSalaryWorker6
             // 
-            this.numericUpDownSalaryWorker6.Location = new System.Drawing.Point(271, 59);
+            this.numericUpDownSalaryWorker6.Location = new System.Drawing.Point(361, 73);
+            this.numericUpDownSalaryWorker6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownSalaryWorker6.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownSalaryWorker6.Name = "numericUpDownSalaryWorker6";
-            this.numericUpDownSalaryWorker6.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownSalaryWorker6.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownSalaryWorker6.TabIndex = 1;
             this.numericUpDownSalaryWorker6.Value = new decimal(new int[] {
             100,
@@ -540,14 +577,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownSalaryWorker3
             // 
-            this.numericUpDownSalaryWorker3.Location = new System.Drawing.Point(271, 26);
+            this.numericUpDownSalaryWorker3.Location = new System.Drawing.Point(361, 32);
+            this.numericUpDownSalaryWorker3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownSalaryWorker3.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownSalaryWorker3.Name = "numericUpDownSalaryWorker3";
-            this.numericUpDownSalaryWorker3.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownSalaryWorker3.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownSalaryWorker3.TabIndex = 1;
             this.numericUpDownSalaryWorker3.Value = new decimal(new int[] {
             60,
@@ -557,72 +595,80 @@ namespace SimulationBuilding
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(404, 128);
+            this.label7.Location = new System.Drawing.Point(539, 158);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.Size = new System.Drawing.Size(133, 28);
             this.label7.TabIndex = 0;
             this.label7.Text = "Бульдозер";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(6, 240);
+            this.label13.Location = new System.Drawing.Point(8, 295);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(275, 33);
+            this.label13.Size = new System.Drawing.Size(367, 41);
             this.label13.TabIndex = 0;
             this.label13.Text = "Математическое ожидание продолжительности ремонта для работы двух слесарей, час";
             this.label13.UseCompatibleTextRendering = true;
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(6, 194);
+            this.label8.Location = new System.Drawing.Point(8, 239);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(275, 36);
+            this.label8.Size = new System.Drawing.Size(367, 44);
             this.label8.TabIndex = 0;
             this.label8.Text = "Математическое ожидание продолжительности ремонта для слесаря 6 разряда, час";
             this.label8.UseCompatibleTextRendering = true;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(6, 97);
+            this.label6.Location = new System.Drawing.Point(8, 119);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(275, 24);
+            this.label6.Size = new System.Drawing.Size(367, 30);
             this.label6.TabIndex = 0;
             this.label6.Text = "Накладные расходы на бригаду в час, руб.";
             this.label6.UseCompatibleTextRendering = true;
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(6, 156);
+            this.label9.Location = new System.Drawing.Point(8, 192);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(275, 38);
+            this.label9.Size = new System.Drawing.Size(367, 47);
             this.label9.TabIndex = 0;
             this.label9.Text = "Математическое ожидание продолжительности ремонта для слесаря 3 разряда, час";
             this.label9.UseCompatibleTextRendering = true;
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(6, 61);
+            this.label10.Location = new System.Drawing.Point(8, 75);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(275, 24);
+            this.label10.Size = new System.Drawing.Size(367, 30);
             this.label10.TabIndex = 0;
             this.label10.Text = "Зарплата слесаря 6 разряда в час, руб.";
             this.label10.UseCompatibleTextRendering = true;
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(6, 28);
+            this.label11.Location = new System.Drawing.Point(8, 34);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(275, 24);
+            this.label11.Size = new System.Drawing.Size(367, 30);
             this.label11.TabIndex = 0;
             this.label11.Text = "Зарплата слесаря 3 разряда в час, руб.";
             this.label11.UseCompatibleTextRendering = true;
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(268, 128);
+            this.label12.Location = new System.Drawing.Point(357, 158);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 23);
+            this.label12.Size = new System.Drawing.Size(133, 28);
             this.label12.TabIndex = 0;
             this.label12.Text = "Экскаватор";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -636,18 +682,21 @@ namespace SimulationBuilding
             this.groupBoxModelingParams.Controls.Add(this.numericUpDownModelPeriod);
             this.groupBoxModelingParams.Controls.Add(this.label18);
             this.groupBoxModelingParams.Controls.Add(this.label19);
-            this.groupBoxModelingParams.Location = new System.Drawing.Point(12, 479);
+            this.groupBoxModelingParams.Location = new System.Drawing.Point(16, 590);
+            this.groupBoxModelingParams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxModelingParams.Name = "groupBoxModelingParams";
-            this.groupBoxModelingParams.Size = new System.Drawing.Size(528, 153);
+            this.groupBoxModelingParams.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxModelingParams.Size = new System.Drawing.Size(704, 188);
             this.groupBoxModelingParams.TabIndex = 6;
             this.groupBoxModelingParams.TabStop = false;
             this.groupBoxModelingParams.Text = "Параметры моделирования";
             // 
             // radioButtonOnlyWorker6
             // 
-            this.radioButtonOnlyWorker6.Location = new System.Drawing.Point(391, 104);
+            this.radioButtonOnlyWorker6.Location = new System.Drawing.Point(521, 128);
+            this.radioButtonOnlyWorker6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonOnlyWorker6.Name = "radioButtonOnlyWorker6";
-            this.radioButtonOnlyWorker6.Size = new System.Drawing.Size(131, 35);
+            this.radioButtonOnlyWorker6.Size = new System.Drawing.Size(175, 43);
             this.radioButtonOnlyWorker6.TabIndex = 1;
             this.radioButtonOnlyWorker6.Text = "Работает слесарь 6 разряда";
             this.radioButtonOnlyWorker6.UseVisualStyleBackColor = true;
@@ -655,9 +704,10 @@ namespace SimulationBuilding
             // radioButtonBothWorkers
             // 
             this.radioButtonBothWorkers.Checked = true;
-            this.radioButtonBothWorkers.Location = new System.Drawing.Point(264, 104);
+            this.radioButtonBothWorkers.Location = new System.Drawing.Point(352, 128);
+            this.radioButtonBothWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonBothWorkers.Name = "radioButtonBothWorkers";
-            this.radioButtonBothWorkers.Size = new System.Drawing.Size(127, 35);
+            this.radioButtonBothWorkers.Size = new System.Drawing.Size(169, 43);
             this.radioButtonBothWorkers.TabIndex = 1;
             this.radioButtonBothWorkers.TabStop = true;
             this.radioButtonBothWorkers.Text = "Работают оба слесаря";
@@ -665,23 +715,25 @@ namespace SimulationBuilding
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(6, 113);
+            this.label14.Location = new System.Drawing.Point(8, 139);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(275, 24);
+            this.label14.Size = new System.Drawing.Size(367, 30);
             this.label14.TabIndex = 0;
             this.label14.Text = "Состав бригады";
             this.label14.UseCompatibleTextRendering = true;
             // 
             // numericUpDownWorkingHours
             // 
-            this.numericUpDownWorkingHours.Location = new System.Drawing.Point(271, 75);
+            this.numericUpDownWorkingHours.Location = new System.Drawing.Point(361, 92);
+            this.numericUpDownWorkingHours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownWorkingHours.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownWorkingHours.Name = "numericUpDownWorkingHours";
-            this.numericUpDownWorkingHours.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownWorkingHours.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownWorkingHours.TabIndex = 1;
             this.numericUpDownWorkingHours.Value = new decimal(new int[] {
             16,
@@ -691,14 +743,15 @@ namespace SimulationBuilding
             // 
             // numericUpDownModelPeriod
             // 
-            this.numericUpDownModelPeriod.Location = new System.Drawing.Point(271, 42);
+            this.numericUpDownModelPeriod.Location = new System.Drawing.Point(361, 52);
+            this.numericUpDownModelPeriod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownModelPeriod.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericUpDownModelPeriod.Name = "numericUpDownModelPeriod";
-            this.numericUpDownModelPeriod.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownModelPeriod.Size = new System.Drawing.Size(129, 22);
             this.numericUpDownModelPeriod.TabIndex = 1;
             this.numericUpDownModelPeriod.Value = new decimal(new int[] {
             100,
@@ -708,53 +761,58 @@ namespace SimulationBuilding
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(6, 77);
+            this.label18.Location = new System.Drawing.Point(8, 95);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(275, 24);
+            this.label18.Size = new System.Drawing.Size(367, 30);
             this.label18.TabIndex = 0;
             this.label18.Text = "Время работы техники, час";
             this.label18.UseCompatibleTextRendering = true;
             // 
             // label19
             // 
-            this.label19.Location = new System.Drawing.Point(6, 44);
+            this.label19.Location = new System.Drawing.Point(8, 54);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(275, 24);
+            this.label19.Size = new System.Drawing.Size(367, 30);
             this.label19.TabIndex = 0;
             this.label19.Text = "Продолжительность моделирования, дней";
             this.label19.UseCompatibleTextRendering = true;
             // 
             // richTextBoxTest
             // 
-            this.richTextBoxTest.Location = new System.Drawing.Point(12, 638);
+            this.richTextBoxTest.Location = new System.Drawing.Point(16, 785);
+            this.richTextBoxTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBoxTest.Name = "richTextBoxTest";
             this.richTextBoxTest.ReadOnly = true;
             this.richTextBoxTest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBoxTest.Size = new System.Drawing.Size(267, 102);
+            this.richTextBoxTest.Size = new System.Drawing.Size(355, 125);
             this.richTextBoxTest.TabIndex = 7;
             this.richTextBoxTest.Text = "";
+            
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 746);
+            this.button1.Location = new System.Drawing.Point(16, 918);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 23);
+            this.button1.Size = new System.Drawing.Size(175, 28);
             this.button1.TabIndex = 8;
             this.button1.Text = "TestExponential";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // BuildSim
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 682);
+            this.ClientSize = new System.Drawing.Size(1711, 839);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBoxTest);
             this.Controls.Add(this.groupBoxModelingParams);
             this.Controls.Add(this.groupBoxWorkersParams);
             this.Controls.Add(this.groupBoxMachinesParams);
             this.Controls.Add(this.groupBox4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "BuildSim";
             this.Text = "Имитационное моделирование работы строительных машин";
             this.groupBox4.ResumeLayout(false);
