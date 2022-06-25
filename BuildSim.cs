@@ -103,9 +103,8 @@ namespace SimulationBuilding
             profitPerAllPeriod = 0;
 
             // Старт моделирования первого дня
-                                //Здесь должна быть функция для моделирования одного дня!!
-            
-            
+            ModelingOneDay();
+
             //После начала моделирования меняем доступные кнопки
             btnStartModeling.Enabled = false;
             btnStopModeling.Enabled = true;
@@ -129,21 +128,52 @@ namespace SimulationBuilding
 
         private void btnNextDay_Click(object sender, EventArgs e)
         {
-            //Здесь должна быть функция для моделирования одного дня!!
+            ModelingOneDay();
         }
 
         private void btnFinishModeling_Click(object sender, EventArgs e)
         {
             for (int i = modelDay; i < durationModelingDay; i++)
             {
-                //Здесь должна быть функция для моделирования одного дня!!
+                ModelingOneDay();
             }
         }
 
-        private void BuildSim_Load(object sender, EventArgs e)
+        #region Основные функции для моделирования
+
+
+        /// <summary>
+        /// Моделирование одного дня работы системы
+        /// </summary>
+        private void ModelingOneDay()
         {
+            //Тут делаем метод для ресета данных моделирования за день
+
+            modelDay++; //Прошел один день
+            modelMinute = 0;
            
+
+            // Заполнение данных о текущем дне моделирования
+            textBoxModelDay.Text = modelDay.ToString();
+
+            // Моделирование всех минут одной смены (например, 16 часов * 60 = 960 мин)
+            for (int i = 0; i < (durationWorkChange * 60); i++)
+            {
+                modelMinute = i;
+                ModelingOneMinute(); // Метод для Моделирования следующей минуты работы системы
+               
+            }
+             
+            // Тут будт методы для обновления данных о моделировании (стата)
+            
         }
+
+        private void ModelingOneMinute()
+        {
+                 
+        }
+
+        #endregion
 
     }
 }
