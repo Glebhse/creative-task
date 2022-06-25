@@ -170,10 +170,243 @@ namespace SimulationBuilding
 
         private void ModelingOneMinute()
         {
-                 
+            ModelingOneMinuteExcavator();
+            ModelingOneMinuteBulldozer();
+
+
+            //Тут ведем учет состояния мастера 6 и 4 разряда
+            //рассмотреть случай если оба заняты
+            //случай если они оба работают
+        }
+
+        private void ModelingOneMinuteExcavator()
+        {
+            // Если состояние экскаватора "готов к работе", то рассчитывается время, когда машина выйдет из строя и устанавливается статус "в работе"
+            if (excavator.state == MachineState.ReadyToWork)
+            {
+                excavator.workTime = modelMinute + GetRandomValueByExponential(excavator.expectationDurationWork);
+                excavator.state = MachineState.Working;
+                //Вывод
+            }
+            // Если наступило время ремонта, меняется состояние на ожидание ремонта (простой)
+            else if (excavator.state == MachineState.Working && modelMinute == excavator.workTime)
+            {
+                excavator.state = MachineState.WaitingRepair;
+                //Вывод
+            }
+            // Если экскаватор находится в ожидании ремонта
+            if (excavator.state == MachineState.WaitingRepair)
+            {
+                // Условия для отправки экскаватора в ремонт:
+                // 1. Работают оба мастера и свободны оба
+                // 2. Работают оба мастера, но свободен только 3 разряда
+                // 3. Работает один мастер 6 разряда и он свободен
+
+                // Если работают оба мастера (бригада)
+                if (bothMasterWorking)
+                {
+                    // Если свободны оба мастера
+                    if (worker3.stateWorker == WorkerState.Free && worker6.stateWorker == WorkerState.Free)
+                    {
+                        // Устанавливаем состояние экскаватора "В ремонте"
+                        excavator.state = MachineState.Repair;
+                        // Состояние мастеров - "Ремонт экскаватора"
+                        worker3.stateWorker = WorkerState.ExcavatorRepair;
+                        worker6.stateWorker = WorkerState.ExcavatorRepair;
+
+                        // Расчет времени завершение ремонта экскаватора
+                        excavator.repairTime = modelMinute + GetRandomValueByExponential(expValueRepairExcavatorWorkers);
+                        //Вывод
+                    }
+                    // Если свободен только мастер 3 разряда
+                    else if (worker3.stateWorker == WorkerState.Free && worker6.stateWorker != WorkerState.Free)
+                    {
+                        // Устанавливаем состояние экскаватора "В ремонте"
+                        excavator.state = MachineState.Repair;
+                        // Состояние мастера 3 разр. - "Ремонт экскаватора"
+                        worker3.stateWorker = WorkerState.ExcavatorRepair;
+                        // Расчет времени завершение ремонта экскаватора
+                        excavator.repairTime = modelMinute + GetRandomValueByExponential(worker3.expectationDurationRepairExcavator);
+                        //Вывод
+                    }
+                }
+                // Работает только мастер 6 разряда
+                else
+                {
+                    if (worker6.stateWorker == WorkerState.Free)
+                    {
+                        // Устанавливаем состояние экскаватора "В ремонте"
+                        excavator.state = MachineState.Repair;
+                        // Состояние мастера 6 разр. - "Ремонт экскаватора"
+                        worker6.stateWorker = WorkerState.ExcavatorRepair;
+                        // Расчет времени завершение ремонта экскаватора
+                        excavator.repairTime = modelMinute + GetRandomValueByExponential(worker6.expectationDurationRepairExcavator);
+                        //Вывод!!!
+                    }
+                }
+            }
+
+            // Если подошло время завершения ремонта экскаватора
+            if (excavator.state == MachineState.Repair && excavator.repairTime == modelMinute)
+            {
+                // Переводим экскаватор в рабочее состояние
+                excavator.state = MachineState.Working;
+                // Рассчитываем время до следующей поломки
+                excavator.workTime = modelMinute + GetRandomValueByExponential(excavator.expectationDurationWork);
+
+                //Вывод!!!
+
+                // Освобождаем мастера 3 разряда, если он занимался ремонтом экскаватора
+                if (worker3.stateWorker == WorkerState.ExcavatorRepair)
+                    worker3.stateWorker = WorkerState.Free;
+
+                // Освобождаем мастера 6 разряда, если он занимался ремонтом экскаватора
+                if (worker6.stateWorker == WorkerState.ExcavatorRepair)
+                    worker6.stateWorker = WorkerState.Free;
+            }
+
+            // Накопительный учет состояния работы экскаватора
+            switch (excavator.state)
+            {
+                case MachineState.Working:
+                    excavator.modelDurationWorkPerDay++;
+                    excavator.modelDurationWorkPerAllPeriod++;
+                    break;
+                case MachineState.Repair:
+                    excavator.modelDurationRepairPerDay++;
+                    excavator.modelDurationRepairPerAllPeriod++;
+                    break;
+                case MachineState.WaitingRepair:
+                    excavator.modelDurationWaitingPerDay++;
+                    excavator.modelDurationWaitingPerAllPeriod++;
+                    break;
+            }
+        }
+
+        private void ModelingOneMinuteBulldozer()
+        {
+            // Если состояние экскаватора "готов к работе", то рассчитывается время, когда машина выйдет из строя и устанавливается статус "в работе"
+            if (bulldozer.state == MachineState.ReadyToWork)
+            {
+                bulldozer.workTime = modelMinute + GetRandomValueByExponential(bulldozer.expectationDurationWork);
+                bulldozer.state = MachineState.Working;
+                //Вывод!!!
+            }
+            // Если наступило время ремонта, меняется состояние на ожидание ремонта (простой)
+            if (bulldozer.state == MachineState.Working && modelMinute == bulldozer.workTime)
+            {
+                bulldozer.state = MachineState.WaitingRepair;
+                //Вывод!!!
+            }
+            // Если бульдозер находится в ожидании ремонта
+            if (bulldozer.state == MachineState.WaitingRepair)
+            {
+                // Условия для отправки бульдозера в ремонт:
+                // 1. Работают оба мастера и свободны оба
+                // 2. Работает один мастер 6 разряда и он свободен
+
+                // Если работают оба мастера (бригада)
+                if (bothMasterWorking)
+                {
+                    // Если свободны оба мастера
+                    if (worker3.stateWorker == WorkerState.Free && worker6.stateWorker == WorkerState.Free)
+                    {
+                        bulldozer.state = MachineState.Repair;
+                        worker3.stateWorker = WorkerState.BulldozerRepair;
+                        worker6.stateWorker = WorkerState.BulldozerRepair;
+
+                        // Расчет времени завершения ремонта бульдозера
+                        bulldozer.repairTime = modelMinute + GetRandomValueByExponential(expValueRepairBulldozerWorkers);
+                        //Вывод!!!
+                    }
+                }
+                // Если работает только мастер 6 разряда
+                else
+                {
+                    if (worker6.stateWorker == WorkerState.Free)
+                    {
+                        bulldozer.state = MachineState.Repair;
+                        worker6.stateWorker = WorkerState.BulldozerRepair;
+                        // Расчет времени завершения ремонта бульдозера
+                        bulldozer.repairTime = modelMinute + GetRandomValueByExponential(worker6.expectationDurationRepairBulldozer);
+                        //Вывод!!!
+                    }
+                }
+            }
+
+            // Если подошло время завершения ремонта экскаватора
+            if (bulldozer.state == MachineState.Repair && bulldozer.repairTime == modelMinute)
+            {
+                // Переводим экскаватор в рабочее состояние
+                bulldozer.state = MachineState.Working;
+                // Рассчитываем время до следующей поломки
+                bulldozer.workTime = modelMinute + GetRandomValueByExponential(bulldozer.expectationDurationWork);
+
+                //Вывод!!!
+
+                // Освобождаем мастера 3 разряда, если он занимался ремонтом бульдозера
+                if (worker3.stateWorker == WorkerState.BulldozerRepair)
+                    worker3.stateWorker = WorkerState.Free;
+
+                // Освобождаем мастера 6 разряда, если он занимался ремонтом бульдозера
+                if (worker6.stateWorker == WorkerState.BulldozerRepair)
+                    worker6.stateWorker = WorkerState.Free;
+            }
+
+            // Накопительный учет состояния работы бульдозера
+            switch (bulldozer.state)
+            {
+                case MachineState.Working:
+                    bulldozer.modelDurationWorkPerDay++;
+                    bulldozer.modelDurationWorkPerAllPeriod++;
+                    break;
+                case MachineState.Repair:
+                    bulldozer.modelDurationRepairPerDay++;
+                    bulldozer.modelDurationRepairPerAllPeriod++;
+                    break;
+                case MachineState.WaitingRepair:
+                    bulldozer.modelDurationWaitingPerDay++;
+                    bulldozer.modelDurationWaitingPerAllPeriod++;
+                    break;
+            }
         }
 
         #endregion
 
+
+
+        #region Вспомогательные функции
+
+        /// <summary>
+        /// Кнопка "TestExponential"
+        /// </summary>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int value, sum = 0;
+            richTextBoxTest.Clear();
+            for (int i = 0; i < 100; i++)
+            {
+                value = this.GetRandomValueByExponential(5000);
+                richTextBoxTest.AppendText(value.ToString() + "\r\n");
+                sum += value;
+            }
+            richTextBoxTest.AppendText("---------------\r\n");
+            richTextBoxTest.AppendText((sum / 100).ToString());
+        }
+
+        Random r = new Random();
+
+        /// <summary>
+        /// Сгенерировать случайную величину по экспоненциальному закону
+        /// </summary>
+        /// <param name="expectedValue">математическое ожидание</param>
+        /// <returns></returns>
+        private int GetRandomValueByExponential(int expectedValue)
+        {
+            double val = expectedValue * Math.Log(r.NextDouble());
+            return (int)val;
+        }
+
+        #endregion
     }
 }
