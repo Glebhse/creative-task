@@ -186,13 +186,14 @@ namespace SimulationBuilding
             {
                 excavator.workTime = modelMinute + GetRandomValueByExponential(excavator.expectationDurationWork);
                 excavator.state = MachineState.Working;
-                //Вывод
+                PrintStateMachine(excavator);
             }
             // Если наступило время ремонта, меняется состояние на ожидание ремонта (простой)
             else if (excavator.state == MachineState.Working && modelMinute == excavator.workTime)
             {
                 excavator.state = MachineState.WaitingRepair;
-                //Вывод
+                PrintStateMachine(excavator);
+               
             }
             // Если экскаватор находится в ожидании ремонта
             if (excavator.state == MachineState.WaitingRepair)
@@ -216,7 +217,7 @@ namespace SimulationBuilding
 
                         // Расчет времени завершение ремонта экскаватора
                         excavator.repairTime = modelMinute + GetRandomValueByExponential(expValueRepairExcavatorWorkers);
-                        //Вывод
+                        PrintStateMachine(excavator);
                     }
                     // Если свободен только мастер 3 разряда
                     else if (worker3.stateWorker == WorkerState.Free && worker6.stateWorker != WorkerState.Free)
@@ -227,7 +228,7 @@ namespace SimulationBuilding
                         worker3.stateWorker = WorkerState.ExcavatorRepair;
                         // Расчет времени завершение ремонта экскаватора
                         excavator.repairTime = modelMinute + GetRandomValueByExponential(worker3.expectationDurationRepairExcavator);
-                        //Вывод
+                        PrintStateMachine(excavator);
                     }
                 }
                 // Работает только мастер 6 разряда
@@ -241,7 +242,7 @@ namespace SimulationBuilding
                         worker6.stateWorker = WorkerState.ExcavatorRepair;
                         // Расчет времени завершение ремонта экскаватора
                         excavator.repairTime = modelMinute + GetRandomValueByExponential(worker6.expectationDurationRepairExcavator);
-                        //Вывод!!!
+                        PrintStateMachine(excavator);
                     }
                 }
             }
@@ -253,8 +254,7 @@ namespace SimulationBuilding
                 excavator.state = MachineState.Working;
                 // Рассчитываем время до следующей поломки
                 excavator.workTime = modelMinute + GetRandomValueByExponential(excavator.expectationDurationWork);
-
-                //Вывод!!!
+                PrintStateMachine(excavator);
 
                 // Освобождаем мастера 3 разряда, если он занимался ремонтом экскаватора
                 if (worker3.stateWorker == WorkerState.ExcavatorRepair)
@@ -290,13 +290,13 @@ namespace SimulationBuilding
             {
                 bulldozer.workTime = modelMinute + GetRandomValueByExponential(bulldozer.expectationDurationWork);
                 bulldozer.state = MachineState.Working;
-                //Вывод!!!
+                PrintStateMachine(bulldozer);
             }
             // Если наступило время ремонта, меняется состояние на ожидание ремонта (простой)
             if (bulldozer.state == MachineState.Working && modelMinute == bulldozer.workTime)
             {
                 bulldozer.state = MachineState.WaitingRepair;
-                //Вывод!!!
+                PrintStateMachine(bulldozer);
             }
             // Если бульдозер находится в ожидании ремонта
             if (bulldozer.state == MachineState.WaitingRepair)
@@ -317,7 +317,7 @@ namespace SimulationBuilding
 
                         // Расчет времени завершения ремонта бульдозера
                         bulldozer.repairTime = modelMinute + GetRandomValueByExponential(expValueRepairBulldozerWorkers);
-                        //Вывод!!!
+                        PrintStateMachine(bulldozer);
                     }
                 }
                 // Если работает только мастер 6 разряда
@@ -329,7 +329,7 @@ namespace SimulationBuilding
                         worker6.stateWorker = WorkerState.BulldozerRepair;
                         // Расчет времени завершения ремонта бульдозера
                         bulldozer.repairTime = modelMinute + GetRandomValueByExponential(worker6.expectationDurationRepairBulldozer);
-                        //Вывод!!!
+                        PrintStateMachine(bulldozer);
                     }
                 }
             }
@@ -342,7 +342,7 @@ namespace SimulationBuilding
                 // Рассчитываем время до следующей поломки
                 bulldozer.workTime = modelMinute + GetRandomValueByExponential(bulldozer.expectationDurationWork);
 
-                //Вывод!!!
+                PrintStateMachine(bulldozer);
 
                 // Освобождаем мастера 3 разряда, если он занимался ремонтом бульдозера
                 if (worker3.stateWorker == WorkerState.BulldozerRepair)
@@ -371,8 +371,99 @@ namespace SimulationBuilding
             }
         }
 
+        private void UpdateDayStatistics()
+        {
+            richTextBoxDayStatistic.AppendText("-----------РАБОТА МАШИН-----------" + "\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность работы экскаватора за день: " + TimeSpan.FromMinutes(excavator.modelDurationWorkPerDay).ToString() + "\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность ожидания ремонта экскаватора за день: " + TimeSpan.FromMinutes(excavator.modelDurationWaitingPerDay).ToString() + "\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность ремонта экскаватора за день: " + TimeSpan.FromMinutes(excavator.modelDurationRepairPerDay).ToString() + "\r\n");
+            richTextBoxDayStatistic.AppendText("\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность работы бульдозера за день: " + TimeSpan.FromMinutes(bulldozer.modelDurationWorkPerDay).ToString() + "\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность ожидания ремонта бульдозера за день: " + TimeSpan.FromMinutes(bulldozer.modelDurationWaitingPerDay).ToString() + "\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность ремонта бульдозера за день: " + TimeSpan.FromMinutes(bulldozer.modelDurationRepairPerDay).ToString() + "\r\n");
+
+            richTextBoxDayStatistic.AppendText("\r\n-----------РАБОТА МАСТЕРОВ-----------" + "\r\n");
+
+            if (bothMasterWorking)
+            {
+                richTextBoxDayStatistic.AppendText("Продолжительность работы мастера 3 разряда - ремонт экскаватора: " + TimeSpan.FromMinutes(worker3.modelTimeRepairExcavatorPerDay).ToString() + "\r\n");
+                richTextBoxDayStatistic.AppendText("Продолжительность работы мастера 3 разряда - ремонт бульдозера: " + TimeSpan.FromMinutes(worker3.modelTimeRepairBulldozerPerDay).ToString() + "\r\n");
+                richTextBoxDayStatistic.AppendText("Продолжительность простоя мастера 3 разряда: " + TimeSpan.FromMinutes(worker3.modelTimeFreePerDay).ToString() + "\r\n");
+                richTextBoxDayStatistic.AppendText("\r\n");
+            }
+
+            richTextBoxDayStatistic.AppendText("Продолжительность работы мастера 6 разряда - ремонт экскаватора: " + TimeSpan.FromMinutes(worker6.modelTimeRepairExcavatorPerDay).ToString() + "\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность работы мастера 6 разряда - ремонт бульдозера: " + TimeSpan.FromMinutes(worker6.modelTimeRepairBulldozerPerDay).ToString() + "\r\n");
+            richTextBoxDayStatistic.AppendText("Продолжительность простоя мастера 6 разряда: " + TimeSpan.FromMinutes(worker6.modelTimeFreePerDay).ToString() + "\r\n");
+
+            richTextBoxDayStatistic.AppendText("\r\n");
+
+            richTextBoxDayStatistic.AppendText("Продолжительность одновременной работы мастеров: " + TimeSpan.FromMinutes(timeBothMasterWorkingPerDay).ToString() + "\r\n");
+
+            richTextBoxDayStatistic.AppendText("\r\n-----------ФИНАНСОВЫЕ ПОКАЗАТЕЛИ-----------" + "\r\n");
+
+            richTextBoxDayStatistic.AppendText("Прибыль от работы экскаватора за день: " + excavator.getProfitPerDay().ToString() + " руб. \r\n");
+            richTextBoxDayStatistic.AppendText("Убыток от простоя экскаватора за день: " + excavator.getLossPerDay().ToString() + " руб. \r\n");
+            richTextBoxDayStatistic.AppendText("\r\n");
+            richTextBoxDayStatistic.AppendText("Прибыль от работы бульдозера за день: " + bulldozer.getProfitPerDay().ToString() + " руб. \r\n");
+            richTextBoxDayStatistic.AppendText("Убыток от простоя экскаватора за день: " + bulldozer.getLossPerDay().ToString() + " руб. \r\n");
+            richTextBoxDayStatistic.AppendText("\r\n");
+            if (bothMasterWorking)
+            {
+                richTextBoxDayStatistic.AppendText("Зарплата мастера 3 разряда: " + worker3.getSalaryPerDay().ToString() + " руб. \r\n");
+            }
+            richTextBoxDayStatistic.AppendText("Зарплата мастера 6 разряда: " + worker6.getSalaryPerDay().ToString() + " руб. \r\n");
+
+            // Накладные расходы на бригаду в день (Время работы хотя бы одного из мастеров за день)
+            decimal overheadsPerDay = Math.Round((worker6.modelTimeRepairBulldozerPerDay + worker6.modelTimeRepairExcavatorPerDay + worker3.modelTimeRepairExcavatorPerDay + worker3.modelTimeRepairBulldozerPerDay - timeBothMasterWorkingPerDay) * costOverheadsWorkersPerMinute, 2);
+            richTextBoxDayStatistic.AppendText("Накладные расходы на работу мастеров: " + overheadsPerDay.ToString() + " руб. \r\n");
+            richTextBoxDayStatistic.AppendText("\r\n");
+
+            // Доходы
+            decimal proceeds = Math.Round(excavator.getProfitPerDay() + bulldozer.getProfitPerDay(), 2);
+            // Расходы
+            decimal expenses = Math.Round(excavator.getLossPerDay() + bulldozer.getLossPerDay() + worker3.getSalaryPerDay() + worker6.getSalaryPerDay() + overheadsPerDay, 2);
+
+            richTextBoxDayStatistic.AppendText("Суммарные доходы за день: " + proceeds.ToString() + " руб. \r\n");
+            richTextBoxDayStatistic.AppendText("Суммарные расходы за день: " + expenses.ToString() + " руб. \r\n");
+
+            // Общая прибыль за день
+            decimal profit = proceeds - expenses;
+            profitPerAllPeriod += profit;
+            richTextBoxDayStatistic.AppendText("Общая прибыль за день: " + profit.ToString() + " руб. \r\n");
+        }
         #endregion
 
+        private void PrintStateMachine(Machine machine)
+        {
+            richTextBoxModelingLog.AppendText("Модельное время: " + TimeSpan.FromMinutes(modelMinute).ToString() + ".  ");
+
+            richTextBoxModelingLog.AppendText("Состояние ");
+
+            if (machine.type == MachineType.Bulldozer)
+            {
+                richTextBoxModelingLog.AppendText("бульдозера: ");
+            }
+            else if (machine.type == MachineType.Excavator)
+            {
+                richTextBoxModelingLog.AppendText("экскаватора: ");
+            }
+
+            switch (machine.state)
+            {
+                case MachineState.Working:
+                    richTextBoxModelingLog.AppendText("работа. Ожидаемое время поломки: ");
+                    richTextBoxModelingLog.AppendText(TimeSpan.FromMinutes(machine.workTime).ToString() + "\r\n");
+                    break;
+                case MachineState.Repair:
+                    richTextBoxModelingLog.AppendText("поломка, начало ремонта. Время выхода с ремонта: ");
+                    richTextBoxModelingLog.AppendText(TimeSpan.FromMinutes(machine.repairTime).ToString() + "\r\n");
+                    break;
+                case MachineState.WaitingRepair:
+                    richTextBoxModelingLog.AppendText("поломка, ожидание ремонта." + "\r\n");
+                    break;
+            }
+        }
 
 
         #region Вспомогательные функции
