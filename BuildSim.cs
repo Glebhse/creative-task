@@ -192,7 +192,8 @@ namespace SimulationBuilding
             else if (excavator.state == MachineState.Working && modelMinute == excavator.workTime)
             {
                 excavator.state = MachineState.WaitingRepair;
-                //Вывод
+                PrintStateMachine(excavator);
+               
             }
             // Если экскаватор находится в ожидании ремонта
             if (excavator.state == MachineState.WaitingRepair)
@@ -216,7 +217,7 @@ namespace SimulationBuilding
 
                         // Расчет времени завершение ремонта экскаватора
                         excavator.repairTime = modelMinute + GetRandomValueByExponential(expValueRepairExcavatorWorkers);
-                        //Вывод
+                        PrintStateMachine(excavator);
                     }
                     // Если свободен только мастер 3 разряда
                     else if (worker3.stateWorker == WorkerState.Free && worker6.stateWorker != WorkerState.Free)
@@ -227,7 +228,7 @@ namespace SimulationBuilding
                         worker3.stateWorker = WorkerState.ExcavatorRepair;
                         // Расчет времени завершение ремонта экскаватора
                         excavator.repairTime = modelMinute + GetRandomValueByExponential(worker3.expectationDurationRepairExcavator);
-                        //Вывод
+                        PrintStateMachine(excavator);
                     }
                 }
                 // Работает только мастер 6 разряда
@@ -241,7 +242,7 @@ namespace SimulationBuilding
                         worker6.stateWorker = WorkerState.ExcavatorRepair;
                         // Расчет времени завершение ремонта экскаватора
                         excavator.repairTime = modelMinute + GetRandomValueByExponential(worker6.expectationDurationRepairExcavator);
-                        //Вывод!!!
+                        PrintStateMachine(excavator);
                     }
                 }
             }
@@ -253,8 +254,7 @@ namespace SimulationBuilding
                 excavator.state = MachineState.Working;
                 // Рассчитываем время до следующей поломки
                 excavator.workTime = modelMinute + GetRandomValueByExponential(excavator.expectationDurationWork);
-
-                //Вывод!!!
+                PrintStateMachine(excavator);
 
                 // Освобождаем мастера 3 разряда, если он занимался ремонтом экскаватора
                 if (worker3.stateWorker == WorkerState.ExcavatorRepair)
@@ -290,13 +290,13 @@ namespace SimulationBuilding
             {
                 bulldozer.workTime = modelMinute + GetRandomValueByExponential(bulldozer.expectationDurationWork);
                 bulldozer.state = MachineState.Working;
-                //Вывод!!!
+                PrintStateMachine(bulldozer);
             }
             // Если наступило время ремонта, меняется состояние на ожидание ремонта (простой)
             if (bulldozer.state == MachineState.Working && modelMinute == bulldozer.workTime)
             {
                 bulldozer.state = MachineState.WaitingRepair;
-                //Вывод!!!
+                PrintStateMachine(bulldozer);
             }
             // Если бульдозер находится в ожидании ремонта
             if (bulldozer.state == MachineState.WaitingRepair)
@@ -317,7 +317,7 @@ namespace SimulationBuilding
 
                         // Расчет времени завершения ремонта бульдозера
                         bulldozer.repairTime = modelMinute + GetRandomValueByExponential(expValueRepairBulldozerWorkers);
-                        //Вывод!!!
+                        PrintStateMachine(bulldozer);
                     }
                 }
                 // Если работает только мастер 6 разряда
@@ -329,7 +329,7 @@ namespace SimulationBuilding
                         worker6.stateWorker = WorkerState.BulldozerRepair;
                         // Расчет времени завершения ремонта бульдозера
                         bulldozer.repairTime = modelMinute + GetRandomValueByExponential(worker6.expectationDurationRepairBulldozer);
-                        //Вывод!!!
+                        PrintStateMachine(bulldozer);
                     }
                 }
             }
@@ -342,7 +342,7 @@ namespace SimulationBuilding
                 // Рассчитываем время до следующей поломки
                 bulldozer.workTime = modelMinute + GetRandomValueByExponential(bulldozer.expectationDurationWork);
 
-                //Вывод!!!
+                PrintStateMachine(bulldozer);
 
                 // Освобождаем мастера 3 разряда, если он занимался ремонтом бульдозера
                 if (worker3.stateWorker == WorkerState.BulldozerRepair)
@@ -373,6 +373,36 @@ namespace SimulationBuilding
 
         #endregion
 
+        private void PrintStateMachine(Machine machine)
+        {
+            richTextBoxModelingLog.AppendText("Модельное время: " + TimeSpan.FromMinutes(modelMinute).ToString() + ".  ");
+
+            richTextBoxModelingLog.AppendText("Состояние ");
+
+            if (machine.type == MachineType.Bulldozer)
+            {
+                richTextBoxModelingLog.AppendText("бульдозера: ");
+            }
+            else if (machine.type == MachineType.Excavator)
+            {
+                richTextBoxModelingLog.AppendText("экскаватора: ");
+            }
+
+            switch (machine.state)
+            {
+                case MachineState.Working:
+                    richTextBoxModelingLog.AppendText("работа. Ожидаемое время поломки: ");
+                    richTextBoxModelingLog.AppendText(TimeSpan.FromMinutes(machine.workTime).ToString() + "\r\n");
+                    break;
+                case MachineState.Repair:
+                    richTextBoxModelingLog.AppendText("поломка, начало ремонта. Время выхода с ремонта: ");
+                    richTextBoxModelingLog.AppendText(TimeSpan.FromMinutes(machine.repairTime).ToString() + "\r\n");
+                    break;
+                case MachineState.WaitingRepair:
+                    richTextBoxModelingLog.AppendText("поломка, ожидание ремонта." + "\r\n");
+                    break;
+            }
+        }
 
 
         #region Вспомогательные функции
