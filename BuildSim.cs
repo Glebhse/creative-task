@@ -43,6 +43,7 @@ namespace SimulationBuilding
         public BuildSim()
         {
             InitializeComponent();
+
             excavator.type = MachineType.Excavator;
             bulldozer.type = MachineType.Bulldozer;
 
@@ -112,14 +113,15 @@ namespace SimulationBuilding
             btnLastDay.Enabled = true;
         }
 
-        private void btnStopModeling_Click(object sender, EventArgs e)
+
+        private void btnStopModeling_Click_1(object sender, EventArgs e)
         {
             groupBoxMachinesParams.Enabled = true;
             groupBoxWorkersParams.Enabled = true;
             groupBoxModelingParams.Enabled = true;
 
-            //Функция для обнуления всей выведенной информации на экран после нажатия кнопки!!
-
+            ResetAllModelingData();
+            
             btnStartModeling.Enabled = true;
             btnStopModeling.Enabled = false;
             btnNextDay.Enabled = false;
@@ -131,7 +133,7 @@ namespace SimulationBuilding
             ModelingOneDay();
         }
 
-        private void btnFinishModeling_Click(object sender, EventArgs e)
+        private void btnLastDay_Click(object sender, EventArgs e)
         {
             for (int i = modelDay; i < durationModelingDay; i++)
             {
@@ -147,11 +149,15 @@ namespace SimulationBuilding
         /// </summary>
         private void ModelingOneDay()
         {
-            //Тут делаем метод для ресета данных моделирования за день
+            ResetModelingDataPerDay();
 
             modelDay++; //Прошел один день
             modelMinute = 0;
-           
+
+            // Очистка полей с результатами моделирования
+            richTextBoxModelingLog.Clear();
+            richTextBoxDayStatistic.Clear();
+            richTextBoxResults.Clear();
 
             // Заполнение данных о текущем дне моделирования
             textBoxModelDay.Text = modelDay.ToString();
@@ -161,11 +167,11 @@ namespace SimulationBuilding
             {
                 modelMinute = i;
                 ModelingOneMinute(); // Метод для Моделирования следующей минуты работы системы
-               
             }
-             
-            // Тут будт методы для обновления данных о моделировании (стата)
-            
+
+            // Обновление данных о моделировании (статистики)
+            UpdateDayStatistics();
+            UpdateResultStatistics();
         }
 
         private void ModelingOneMinute()
@@ -173,10 +179,50 @@ namespace SimulationBuilding
             ModelingOneMinuteExcavator();
             ModelingOneMinuteBulldozer();
 
+            // Накопительный учет состояния мастера 6 разряда
+            switch (worker6.stateWorker)
+            {
+                case WorkerState.ExcavatorRepair:
+                    worker6.modelTimeRepairExcavatorPerDay++;
+                    worker6.modelTimeRepairExcavatorPerAllPeriod++;
+                    break;
+                case WorkerState.BulldozerRepair:
+                    worker6.modelTimeRepairBulldozerPerDay++;
+                    worker6.modelTimeRepairBulldozerPerAllPeriod++;
+                    break;
+                case WorkerState.Free:
+                    worker6.modelTimeFreePerDay++;
+                    worker6.modelTimeFreePerAllPeriod++;
+                    break;
+            }
 
-            //Тут ведем учет состояния мастера 6 и 4 разряда
-            //рассмотреть случай если оба заняты
-            //случай если они оба работают
+            // Если работают оба мастера
+            if (bothMasterWorking)
+            {
+                // Накопительный учет состояния мастера 3 разряда
+                switch (worker3.stateWorker)
+                {
+                    case WorkerState.ExcavatorRepair:
+                        worker3.modelTimeRepairExcavatorPerDay++;
+                        worker3.modelTimeRepairExcavatorPerAllPeriod++;
+                        break;
+                    case WorkerState.BulldozerRepair:
+                        worker3.modelTimeRepairBulldozerPerDay++;
+                        worker3.modelTimeRepairBulldozerPerAllPeriod++;
+                        break;
+                    case WorkerState.Free:
+                        worker3.modelTimeFreePerDay++;
+                        worker3.modelTimeFreePerAllPeriod++;
+                        break;
+                }
+
+                // Если сразу оба мастера были заняты, считается дополнительно общее время их работы
+                if (worker3.stateWorker != WorkerState.Free && worker6.stateWorker != WorkerState.Free)
+                {
+                    timeBothMasterWorkingPerDay++;
+                    timeBothMasterWorkingPerAllPeriod++;
+                }
+            }
         }
 
         private void ModelingOneMinuteExcavator()
@@ -192,8 +238,7 @@ namespace SimulationBuilding
             else if (excavator.state == MachineState.Working && modelMinute == excavator.workTime)
             {
                 excavator.state = MachineState.WaitingRepair;
-                PrintStateMachine(excavator);
-               
+                PrintStateMachine(excavator);       
             }
             // Если экскаватор находится в ожидании ремонта
             if (excavator.state == MachineState.WaitingRepair)
@@ -371,6 +416,36 @@ namespace SimulationBuilding
             }
         }
 
+        private void ResetModelingDataPerDay()
+        {
+            excavator.ResetDataPerDay();
+            bulldozer.ResetDataPerDay();
+
+            worker3.ResetDataPerDay();
+            worker6.ResetDataPerDay();
+
+            timeBothMasterWorkingPerDay = 0;
+        }
+
+        private void ResetAllModelingData()
+        {
+            ResetModelingDataPerDay();
+
+            excavator.ResetAllData();
+            bulldozer.ResetAllData();
+
+            worker3.ResetAllData();
+            worker6.ResetAllData();
+
+            timeBothMasterWorkingPerAllPeriod = 0;
+            profitPerAllPeriod = 0;
+        }
+
+
+        #endregion
+
+        #region Функции для отображения результатов
+
         private void UpdateDayStatistics()
         {
             richTextBoxDayStatistic.AppendText("-----------РАБОТА МАШИН-----------" + "\r\n");
@@ -432,7 +507,6 @@ namespace SimulationBuilding
             profitPerAllPeriod += profit;
             richTextBoxDayStatistic.AppendText("Общая прибыль за день: " + profit.ToString() + " руб. \r\n");
         }
-        #endregion
 
         private void PrintStateMachine(Machine machine)
         {
@@ -496,6 +570,8 @@ namespace SimulationBuilding
 
         }
 
+        #endregion
+
         #region Вспомогательные функции
 
         /// <summary>
@@ -517,6 +593,8 @@ namespace SimulationBuilding
 
         Random r = new Random();
 
+
+
         /// <summary>
         /// Сгенерировать случайную величину по экспоненциальному закону
         /// </summary>
@@ -524,7 +602,7 @@ namespace SimulationBuilding
         /// <returns></returns>
         private int GetRandomValueByExponential(int expectedValue)
         {
-            double val = expectedValue * Math.Log(r.NextDouble());
+            double val = -expectedValue * Math.Log(r.NextDouble());
             return (int)val;
         }
 

@@ -63,17 +63,38 @@ namespace SimulationBuilding
         {
             return Math.Round(modelDurationWorkPerAllPeriod * profitPerMinute, 2);
         }
+
         public decimal getLossPerAllPeriod()
         {
             return Math.Round((modelDurationWaitingPerAllPeriod + modelDurationRepairPerAllPeriod) * lossPerMinute, 2);
         }
+
         public decimal getProfitPerDay()
         {
             return Math.Round(modelDurationWorkPerDay * profitPerMinute, 2);
         }
+
         public decimal getLossPerDay()
         {
             return Math.Round((modelDurationWaitingPerDay + modelDurationRepairPerDay) * lossPerMinute, 2);
+        }
+
+        public void ResetDataPerDay()
+        {
+            this.state = MachineState.ReadyToWork;
+
+            this.modelDurationWorkPerDay = 0;
+            this.modelDurationWaitingPerDay = 0;
+            this.modelDurationRepairPerDay = 0;
+        }
+
+        public void ResetAllData()
+        {
+            this.ResetDataPerDay();
+
+            this.modelDurationRepairPerAllPeriod = 0;
+            this.modelDurationWaitingPerAllPeriod = 0;
+            this.modelDurationWorkPerAllPeriod = 0;
         }
     }
 
