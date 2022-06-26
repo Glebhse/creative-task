@@ -41,6 +41,11 @@ namespace SimulationBuilding
         public int modelTimeRepairBulldozerPerAllPeriod = 0;
         public int modelTimeFreePerAllPeriod = 0;
 
+        public decimal getSalaryPerDay()
+        {
+            return Math.Round(salaryPerMinute * (modelTimeRepairExcavatorPerDay + modelTimeRepairBulldozerPerDay), 2);
+        }
+
         public Worker()
         {
 

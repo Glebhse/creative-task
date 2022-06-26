@@ -464,7 +464,37 @@ namespace SimulationBuilding
                     break;
             }
         }
+        private void UpdateResultStatistics()
+        {
+            double avgDurationWorkExcavator = Math.Round((double)excavator.modelDurationWorkPerAllPeriod / modelDay, 1);
+            double avgDurationWaitingExcavator = Math.Round((double)excavator.modelDurationWaitingPerAllPeriod / modelDay, 1);
+            double avgDurationRepairExcavator = Math.Round((double)excavator.modelDurationRepairPerAllPeriod / modelDay, 1);
 
+            double avgDurationWorkBulldozer = Math.Round((double)bulldozer.modelDurationWorkPerAllPeriod / modelDay, 1);
+            double avgDurationWaitingBulldozer = Math.Round((double)bulldozer.modelDurationWaitingPerAllPeriod / modelDay, 1);
+            double avgDurationRepairBulldozer = Math.Round((double)bulldozer.modelDurationRepairPerAllPeriod / modelDay, 1);
+
+            richTextBoxResults.AppendText("-----------РАБОТА МАШИН-----------" + "\r\n");
+            richTextBoxResults.AppendText("Средняя продолжительность работы экскаватора за день: " + TimeSpan.FromMinutes(avgDurationWorkExcavator).ToString() + "\r\n");
+            richTextBoxResults.AppendText("Средняя продолжительность ожидания ремонта экскаватора за день: " + TimeSpan.FromMinutes(avgDurationWaitingExcavator).ToString() + "\r\n");
+            richTextBoxResults.AppendText("Средняя продолжительность ремонта экскаватора за день: " + TimeSpan.FromMinutes(avgDurationRepairExcavator).ToString() + "\r\n");
+            richTextBoxResults.AppendText("\r\n");
+            richTextBoxResults.AppendText("Средняя продолжительность работы бульдозера за день: " + TimeSpan.FromMinutes(avgDurationWorkBulldozer).ToString() + "\r\n");
+            richTextBoxResults.AppendText("Средняя продолжительность ожидания ремонта бульдозера за день: " + TimeSpan.FromMinutes(avgDurationWaitingBulldozer).ToString() + "\r\n");
+            richTextBoxResults.AppendText("Средняя продолжительность ремонта бульдозера за день: " + TimeSpan.FromMinutes(avgDurationRepairBulldozer).ToString() + "\r\n");
+
+            richTextBoxResults.AppendText("\r\n-----------ФИНАНСОВЫЕ ПОКАЗАТЕЛИ-----------" + "\r\n");
+
+            richTextBoxResults.AppendText("Общая прибыль от работы экскаватора: " + excavator.getProfitPerAllPeriod().ToString() + " руб. \r\n");
+            richTextBoxResults.AppendText("Общие убытки от простоя экскаватора: " + excavator.getLossPerAllPeriod().ToString() + " руб. \r\n");
+            richTextBoxResults.AppendText("\r\n");
+            richTextBoxResults.AppendText("Общая прибыль от работы бульдозера: " + bulldozer.getProfitPerAllPeriod().ToString() + " руб. \r\n");
+            richTextBoxResults.AppendText("Общие убытки от простоя экскаватора: " + bulldozer.getLossPerAllPeriod().ToString() + " руб. \r\n");
+            richTextBoxResults.AppendText("\r\n");
+
+            richTextBoxResults.AppendText("Общая прибыль: " + profitPerAllPeriod.ToString() + " руб. \r\n");
+
+        }
 
         #region Вспомогательные функции
 
