@@ -279,7 +279,7 @@ namespace SimulationBuilding
             this.numericUpDownBullProfit.Location = new System.Drawing.Point(611, 169);
             this.numericUpDownBullProfit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownBullProfit.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -297,7 +297,7 @@ namespace SimulationBuilding
             this.numericUpDownExcProfit.Location = new System.Drawing.Point(406, 169);
             this.numericUpDownExcProfit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownExcProfit.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -315,7 +315,7 @@ namespace SimulationBuilding
             this.numericUpDownBullLoss.Location = new System.Drawing.Point(611, 115);
             this.numericUpDownBullLoss.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownBullLoss.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -333,7 +333,7 @@ namespace SimulationBuilding
             this.numericUpDownExcLoss.Location = new System.Drawing.Point(406, 115);
             this.numericUpDownExcLoss.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownExcLoss.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -455,7 +455,7 @@ namespace SimulationBuilding
             this.numericUpDownExpRepairBulldozerWorkers.Location = new System.Drawing.Point(611, 374);
             this.numericUpDownExpRepairBulldozerWorkers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownExpRepairBulldozerWorkers.Maximum = new decimal(new int[] {
-            5000,
+            500,
             0,
             0,
             0});
@@ -473,7 +473,7 @@ namespace SimulationBuilding
             this.numericUpDownExpRepairBulldozerWorker6.Location = new System.Drawing.Point(611, 302);
             this.numericUpDownExpRepairBulldozerWorker6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownExpRepairBulldozerWorker6.Maximum = new decimal(new int[] {
-            5000,
+            500,
             0,
             0,
             0});
@@ -492,7 +492,7 @@ namespace SimulationBuilding
             this.numericUpDownExpRepairExcavatorWorkers.Location = new System.Drawing.Point(406, 374);
             this.numericUpDownExpRepairExcavatorWorkers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownExpRepairExcavatorWorkers.Maximum = new decimal(new int[] {
-            5000,
+            500,
             0,
             0,
             0});
@@ -510,7 +510,7 @@ namespace SimulationBuilding
             this.numericUpDownExpRepairExcavatorWorker6.Location = new System.Drawing.Point(406, 302);
             this.numericUpDownExpRepairExcavatorWorker6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownExpRepairExcavatorWorker6.Maximum = new decimal(new int[] {
-            5000,
+            500,
             0,
             0,
             0});
@@ -528,7 +528,7 @@ namespace SimulationBuilding
             this.numericUpDownExpRepairExcavatorWorker3.Location = new System.Drawing.Point(406, 246);
             this.numericUpDownExpRepairExcavatorWorker3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownExpRepairExcavatorWorker3.Maximum = new decimal(new int[] {
-            5000,
+            500,
             0,
             0,
             0});
@@ -546,7 +546,7 @@ namespace SimulationBuilding
             this.numericUpDownOverheadsWorkers.Location = new System.Drawing.Point(406, 146);
             this.numericUpDownOverheadsWorkers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownOverheadsWorkers.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -564,7 +564,7 @@ namespace SimulationBuilding
             this.numericUpDownSalaryWorker6.Location = new System.Drawing.Point(406, 91);
             this.numericUpDownSalaryWorker6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownSalaryWorker6.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -582,7 +582,7 @@ namespace SimulationBuilding
             this.numericUpDownSalaryWorker3.Location = new System.Drawing.Point(406, 40);
             this.numericUpDownSalaryWorker3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownSalaryWorker3.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
@@ -730,7 +730,7 @@ namespace SimulationBuilding
             this.numericUpDownWorkingHours.Location = new System.Drawing.Point(406, 115);
             this.numericUpDownWorkingHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownWorkingHours.Maximum = new decimal(new int[] {
-            5000,
+            24,
             0,
             0,
             0});
@@ -748,7 +748,7 @@ namespace SimulationBuilding
             this.numericUpDownModelPeriod.Location = new System.Drawing.Point(406, 65);
             this.numericUpDownModelPeriod.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownModelPeriod.Maximum = new decimal(new int[] {
-            5000,
+            500,
             0,
             0,
             0});
@@ -813,7 +813,7 @@ namespace SimulationBuilding
             this.Controls.Add(this.groupBoxWorkersParams);
             this.Controls.Add(this.groupBoxMachinesParams);
             this.Controls.Add(this.groupBox4);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "BuildSim";
             this.Text = "Имитационное моделирование работы строительных машин";
             this.groupBox4.ResumeLayout(false);
