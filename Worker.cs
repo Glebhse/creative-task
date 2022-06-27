@@ -11,14 +11,14 @@ namespace SimulationBuilding
     /// </summary>
     public enum WorkerState
     {
-        Free, //Мастер свободен
+        Free,            //Мастер свободен
         ExcavatorRepair, //Мастер чинит Эксаватор
-        BulldozerRepair //Мастер чинит Бульдозер
+        BulldozerRepair  //Мастер чинит Бульдозер
     }
 
     internal class Worker
     {
-        // Зарплата рабочего (руб в минуту)
+        // Зарплата слесаря (руб в минуту)
         public decimal salaryPerMinute = 0;
 
         // Математическое ожидание времени ремонта экскаватора
@@ -26,7 +26,6 @@ namespace SimulationBuilding
 
         // Математическое ожидание времени ремонта бульдозера
         public int expectationDurationRepairBulldozer = 0;
-
 
         // Текущее состояние мастера (обновляется в процессе моделирования)
         public WorkerState stateWorker = WorkerState.Free;
@@ -46,11 +45,18 @@ namespace SimulationBuilding
 
         }
 
+        /// <summary>
+        /// Определить зарплату за последний день моделирования
+        /// </summary>
+        /// <returns></returns>
         public decimal getSalaryPerDay()
         {
             return Math.Round(salaryPerMinute * (modelTimeRepairExcavatorPerDay + modelTimeRepairBulldozerPerDay), 2);
         }
 
+        /// <summary>
+        /// Сбросить все модельные данные за день
+        /// </summary>
         public void ResetDataPerDay()
         {
             this.modelTimeRepairExcavatorPerDay = 0;
@@ -59,7 +65,9 @@ namespace SimulationBuilding
             this.stateWorker = WorkerState.Free;
         }
 
-
+        /// <summary>
+        /// Сбросить все данные моделирования
+        /// </summary>
         public void ResetAllData()
         {
             this.ResetDataPerDay();

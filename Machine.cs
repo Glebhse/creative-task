@@ -11,10 +11,10 @@ namespace SimulationBuilding
     /// </summary>
     public enum MachineState
     {
-        ReadyToWork,
-        Working,
-        WaitingRepair,
-        Repair
+        ReadyToWork,    //Готов к работе
+        Working,        //Работает
+        WaitingRepair,  //Ожидение ремонта
+        Repair          //Ремонт
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace SimulationBuilding
     }
 
 
-    public class Machine
+    internal class Machine
     {
         // Математическое ожидание времени работы машины
         public int expectationDurationWork = 0;
@@ -59,26 +59,45 @@ namespace SimulationBuilding
         public int modelDurationWaitingPerAllPeriod = 0;
         public int modelDurationRepairPerAllPeriod = 0;
 
+        /// <summary>
+        /// Рассчитать доход от работы машины за весь период моделирования
+        /// </summary>
+        /// <returns></returns>
         public decimal getProfitPerAllPeriod()
         {
             return Math.Round(modelDurationWorkPerAllPeriod * profitPerMinute, 2);
         }
 
+        /// <summary>
+        /// Рассчитать убыток от работы машины за весь период моделирования
+        /// </summary>
+        /// <returns></returns>
         public decimal getLossPerAllPeriod()
         {
             return Math.Round((modelDurationWaitingPerAllPeriod + modelDurationRepairPerAllPeriod) * lossPerMinute, 2);
         }
 
+        /// <summary>
+        /// Рассчитать доход от работы машины за день
+        /// </summary>
+        /// <returns></returns>
         public decimal getProfitPerDay()
         {
             return Math.Round(modelDurationWorkPerDay * profitPerMinute, 2);
         }
 
+        /// <summary>
+        /// Рассчитать убыток от работы машины за день
+        /// </summary>
+        /// <returns></returns>
         public decimal getLossPerDay()
         {
             return Math.Round((modelDurationWaitingPerDay + modelDurationRepairPerDay) * lossPerMinute, 2);
         }
 
+        /// <summary>
+        /// Сбросить данные моделирования за день
+        /// </summary>
         public void ResetDataPerDay()
         {
             this.state = MachineState.ReadyToWork;
@@ -88,6 +107,9 @@ namespace SimulationBuilding
             this.modelDurationRepairPerDay = 0;
         }
 
+        /// <summary>
+        /// Сбросить данные моделирования за весь период
+        /// </summary>
         public void ResetAllData()
         {
             this.ResetDataPerDay();

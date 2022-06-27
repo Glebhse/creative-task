@@ -53,6 +53,11 @@ namespace SimulationBuilding
             btnLastDay.Enabled = false;
         }
 
+        #region Обработка событий формы
+
+        /// <summary>
+        /// Кнопка "Старт моделирования"
+        /// </summary>
         private void btnStartModeling_Click(object sender, EventArgs e)
         {
             // Элементы настроки параметров моделирования сделать недоступными
@@ -113,7 +118,9 @@ namespace SimulationBuilding
             btnLastDay.Enabled = true;
         }
 
-
+        /// <summary>
+        /// Кнопка "Остановить моделирование"
+        /// </summary>
         private void btnStopModeling_Click_1(object sender, EventArgs e)
         {
             groupBoxMachinesParams.Enabled = true;
@@ -128,11 +135,17 @@ namespace SimulationBuilding
             btnLastDay.Enabled = false;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку "Следующий день"
+        /// </summary>
         private void btnNextDay_Click(object sender, EventArgs e)
         {
             ModelingOneDay();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку "Конец периода"
+        /// </summary>
         private void btnLastDay_Click(object sender, EventArgs e)
         {
             for (int i = modelDay; i < durationModelingDay; i++)
@@ -140,6 +153,8 @@ namespace SimulationBuilding
                 ModelingOneDay();
             }
         }
+
+        #endregion
 
         #region Основные функции для моделирования
 
@@ -174,6 +189,10 @@ namespace SimulationBuilding
             UpdateResultStatistics();
         }
 
+
+        /// <summary>
+        /// Моделирование одной минуты работы всей системы
+        /// </summary>
         private void ModelingOneMinute()
         {
             ModelingOneMinuteExcavator();
@@ -225,6 +244,9 @@ namespace SimulationBuilding
             }
         }
 
+        /// <summary>
+        /// Моделирование одной минуты работы экскаватора
+        /// </summary>
         private void ModelingOneMinuteExcavator()
         {
             // Если состояние экскаватора "готов к работе", то рассчитывается время, когда машина выйдет из строя и устанавливается статус "в работе"
@@ -299,6 +321,7 @@ namespace SimulationBuilding
                 excavator.state = MachineState.Working;
                 // Рассчитываем время до следующей поломки
                 excavator.workTime = modelMinute + GetRandomValueByExponential(excavator.expectationDurationWork);
+               
                 PrintStateMachine(excavator);
 
                 // Освобождаем мастера 3 разряда, если он занимался ремонтом экскаватора
@@ -328,6 +351,9 @@ namespace SimulationBuilding
             }
         }
 
+        /// <summary>
+        /// Моделирование одной минуты работы бульдозера
+        /// </summary>
         private void ModelingOneMinuteBulldozer()
         {
             // Если состояние экскаватора "готов к работе", то рассчитывается время, когда машина выйдет из строя и устанавливается статус "в работе"
@@ -416,6 +442,9 @@ namespace SimulationBuilding
             }
         }
 
+        /// <summary>
+        /// Сбросить необходимые данные моделирования за день
+        /// </summary>
         private void ResetModelingDataPerDay()
         {
             excavator.ResetDataPerDay();
@@ -427,6 +456,9 @@ namespace SimulationBuilding
             timeBothMasterWorkingPerDay = 0;
         }
 
+        /// <summary>
+        /// Сбросить все данные моделирования
+        /// </summary>
         private void ResetAllModelingData()
         {
             ResetModelingDataPerDay();
@@ -446,6 +478,9 @@ namespace SimulationBuilding
 
         #region Функции для отображения результатов
 
+        /// <summary>
+        /// Вывести результаты за день моделирования
+        /// </summary>
         private void UpdateDayStatistics()
         {
             richTextBoxDayStatistic.AppendText("-----------РАБОТА МАШИН-----------" + "\r\n");
@@ -508,6 +543,9 @@ namespace SimulationBuilding
             richTextBoxDayStatistic.AppendText("Общая прибыль за день: " + profit.ToString() + " руб. \r\n");
         }
 
+        /// <summary>
+        /// Добавить описание нового состояния машины в лог
+        /// </summary>
         private void PrintStateMachine(Machine machine)
         {
             richTextBoxModelingLog.AppendText("Модельное время: " + TimeSpan.FromMinutes(modelMinute).ToString() + ".  ");
@@ -538,6 +576,10 @@ namespace SimulationBuilding
                     break;
             }
         }
+
+        /// <summary>
+        /// Обновить общую статистику за весь период моделирования
+        /// </summary>
         private void UpdateResultStatistics()
         {
             double avgDurationWorkExcavator = Math.Round((double)excavator.modelDurationWorkPerAllPeriod / modelDay, 1);
@@ -592,8 +634,6 @@ namespace SimulationBuilding
         }
 
         Random r = new Random();
-
-
 
         /// <summary>
         /// Сгенерировать случайную величину по экспоненциальному закону
