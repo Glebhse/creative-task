@@ -619,7 +619,10 @@ namespace SimulationBuilding
         /// <summary>
         /// Кнопка "TestExponential"
         /// </summary>
-        private void button1_Click(object sender, EventArgs e)
+
+        Random r = new Random();
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             int value, sum = 0;
             richTextBoxTest.Clear();
@@ -632,8 +635,6 @@ namespace SimulationBuilding
             richTextBoxTest.AppendText("---------------\r\n");
             richTextBoxTest.AppendText((sum / 100).ToString());
         }
-
-        Random r = new Random();
 
         /// <summary>
         /// Сгенерировать случайную величину по экспоненциальному закону

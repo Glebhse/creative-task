@@ -40,11 +40,6 @@ namespace SimulationBuilding
         public int modelTimeRepairBulldozerPerAllPeriod = 0;
         public int modelTimeFreePerAllPeriod = 0;
 
-        public Worker()
-        {
-
-        }
-
         /// <summary>
         /// Определить зарплату за последний день моделирования
         /// </summary>
